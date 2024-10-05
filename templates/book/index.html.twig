@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Livres{% endblock %}
+
+{% block body %}
+    <h1>Liste des Livres</h1>
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <strong>{{ book.title }}</strong> ({{ book.publicationDate|date('Y-m-d') }}), 
+                Catégorie: {{ book.category }}, 
+            
+                {{ book.published ? 'Publié' : 'Non publié' }}
+            </li>
+        {% else %}
+            <li>Aucun livre disponible</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
